@@ -100,4 +100,10 @@ class UserController extends Controller
 
         return back()->with('info', 'Eliminado correctamente');
     }
+
+    public function regist()
+    {
+        Auth()->user()->registerBinnacle();
+        return view('users.regist');
+    }
 }
