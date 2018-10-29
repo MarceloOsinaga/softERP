@@ -4,7 +4,7 @@
 <div class="col-lg-12">
     <div class="ibox float-e-margins">
         <div class="ibox-title panel-success">
-            <h5>Roles </h5>
+            <h5>Cargo </h5>
             <div class="ibox-tools">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -22,10 +22,10 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="input-group">
-                        @can('roles.create')
-                        <a href="{{ route('roles.create') }}" 
+                        @can('cargos.create')
+                        <a href="{{ route('cargos.create') }}" 
                         class="btn btn-sm btn-success">
-                        <i class="fa fa-plus"></i> Nuevo Rol
+                        <i class="fa fa-plus"></i> Nuevo Cargo
                         </a>
                         @endcan
                         
@@ -36,7 +36,7 @@
                 <div class="col-sm-3 pull-right">
                     <div class="input-group">
                         <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>
+                        <button type="button" class="btn btn-sm btn-primary"> Buscar!</button> </span>
                     </div>
                 </div>
             </div>
@@ -44,35 +44,37 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th width="10px">ID</th>
                                 <th>Nombre</th>
-                                <th colspan="3">&nbsp;</th>
+                                <th>Descripcion</th>
+                                <th colspan="2">Accion</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($roles as $role)
+                            
+                            @foreach($cargos as $cargo)
+                            @if ($cargo->estado == 1)
                             <tr>
-                                <td>{{ $role->id }}</td>
-                                <td>{{ $role->name }}</td>
-                                @can('roles.show')
+                                <td>{{ $cargo->nombre }}</td>
+                                <td>{{ $cargo->descripcion }}</td>
+                                @can('cargos.show')
                                 <td width="10px">
-                                    <a href="{{ route('roles.show', $role->id) }}" 
+                                    <a href="{{ route('cargos.show', $cargo->id) }}" 
                                     class="btn btn-sm btn-primary btn-circle">
                                     <i class="fa fa-eye"></i>
                                     </a>
                                 </td>
                                 @endcan
-                                @can('roles.edit')
+                                @can('cargos.edit')
                                 <td width="10px">
-                                    <a href="{{ route('roles.edit', $role->id) }}" 
+                                    <a href="{{ route('cargos.edit', $cargo->id) }}" 
                                     class="btn btn-info btn-circle">
                                     <i class="fa fa-pencil-square-o"></i>
                                     </a>
                                 </td>
                                 @endcan
-                                @can('roles.destroy')
+                                @can('cargos.destroy')
                                 <td width="10px">
-                                    {!! Form::open(['route' => ['roles.destroy', $role->id], 
+                                    {!! Form::open(['route' => ['cargos.destroy', $cargo->id], 
                                     'method' => 'DELETE']) !!}
                                         <button class="btn  btn-sm btn-danger btn-circle">
                                             <i class="fa fa-trash-o"></i>
@@ -81,10 +83,13 @@
                                 </td>
                                 @endcan
                             </tr>
+                            @endif
                             @endforeach
+                            
+                            
                         </tbody>
                     </table>
-                    {{ $roles->render() }}
+                    {{ $cargos->render() }}
             </div>
         </div>
     </div>

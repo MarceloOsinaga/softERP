@@ -4,7 +4,7 @@
 <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title panel-success">
-                <h5>Editar Rol </h5>
+                <h5>Editar cliente </h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -23,10 +23,10 @@
                 <div class="table-responsive">
 
                 <div class="panel-body">                   
-                    {!! Form::model($role, ['route' => ['roles.update', $role->id],
+                    {!! Form::model($cliente, ['route' => ['clientes.update', $cliente->id],
                     'method' => 'PUT']) !!}
 
-                        @include('roles.partials.form')
+                        @include('cliente.partials.form')
                         
                     {!! Form::close() !!}
                 </div>

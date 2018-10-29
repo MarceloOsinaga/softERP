@@ -54,7 +54,6 @@ class User extends Authenticatable
     }
     public function registerBinnacle()
     {
-        //el archivo binaccle.txt debe estar creado dentro de la carpeta binnacle sino  va a tirar error a no ser que se haga un if
         $user = $this::find(Auth::id());
         $date = date('d-m-Y H:i:s');
         $path = public_path().'/binnacle'.'/binnacle.txt';

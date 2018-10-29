@@ -82,7 +82,7 @@
                     </div>
                 </li>
                 <li class="">
-                    <a href="#"><i class="fa fa-home"></i> 
+                    <a href=""><i class="fa fa-home"></i> 
                         <span class="nav-label">Inicio</span> 
                        </a>
     
@@ -98,13 +98,28 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Productos</span></a>
+                    <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Productos</span><span class="fa arrow"></span></a>
+                     <ul class="nav nav-second-level collapse">
+                        <li><a href="{{route('categorias.index')}}">Categoria</a></li>
+                        <li><a href="#">Nueva Compra</a></li>
+                        <li><a href="#">Administrar Compras</a></li>
+                        
+                    </ul>
                 </li>
                 <li>
                     <a href="{{route('clientes.index')}}"><i class="fa fa-user"></i> <span class="nav-label">Clientes</span></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-suitcase"></i> <span class="nav-label">Proveedores</span></a>
+                    <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Recursos Humanos</span><span class="fa arrow"></span></a>
+                     <ul class="nav nav-second-level collapse">
+                        <li><a href="{{route('departamentos.index')}}">Departamento</a></li>
+                        <li><a href="{{route('cargos.index')}}">Cargo</a></li>
+                        <li><a href="#">Empleado</a></li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('proveedors.index') }}"><i class="fa fa-suitcase"></i> <span class="nav-label">Proveedores</span></a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-usd"></i> <span class="nav-label">Venta </span><span class="fa arrow"></span></a>
@@ -119,6 +134,14 @@
                         <li><a href="#"></a></li>
                         <li><a href="#">Administrar Facturas</a></li>
                     </ul>
+                </li>
+                <li>
+                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Sucursales</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="{{ route('paiss.index') }}">Lista de Pais</a></li>
+                            <li><a href="#">Lista de Ciudades</a></li>
+                            <li><a href="#">Lista de sucursales</a></li>
+                        </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Configuracion </span><span class="fa arrow"></span></a>

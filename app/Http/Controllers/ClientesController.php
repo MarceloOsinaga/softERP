@@ -14,7 +14,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Clientes::orderBy('id')->paginate(5);
+        $clientes = Clientes::orderBy('id')->paginate(8);
         return view('cliente.index', compact('clientes'));
     }
 
@@ -25,6 +25,9 @@ class ClientesController extends Controller
      */
     public function create()
     {
+        //AGREGANDO LA ACCION A BITACORA
+        Auth()->user()->registerBinnacle();
+
         $cliente = Clientes::select('id','nombre')->get();
         return view('cliente.create')->with('cliente');
     }
@@ -43,10 +46,12 @@ class ClientesController extends Controller
         $cliente->amaterno = $request->amaterno;
         $cliente->direccion = $request->direccion;
         $cliente->sexo = $request->sexo;
-        $cliente->telefono = $request->celular;
+        $cliente->telefono = $request->telefono;
+        $cliente->celular = $request->celular;
         $cliente->fechanacimiento = $request->fechanacimiento;
         $cliente->nit_ci = $request->nit_ci;
-        $cliente->estado = $request->email;
+        $cliente->estado = $request->estado;
+        $cliente->email = $request->email;
         $cliente->imagen = $request->imagen;
         $cliente->save();
         return redirect()->route('clientes.index');
@@ -72,9 +77,12 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
+        //AGREGANDO LA ACCION A BITACORA
+         Auth()->user()->registerBinnacle();
+
         $cliente = Clientes::findOrFail($id);
         //$categorias para el select form
-        return view('cliente.index', compact('cliente'));
+        return view('cliente.edit', compact('cliente'));
     }
 
     /**
@@ -84,7 +92,7 @@ class ClientesController extends Controller
      * @param  \App\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clientes $clientes)
+    public function update(Request $request, $id)
     {
         $cliente = Clientes::findOrFail($id);
         $cliente->nombre  = $request->nombre;
@@ -92,13 +100,16 @@ class ClientesController extends Controller
         $cliente->amaterno = $request->amaterno;
         $cliente->direccion = $request->direccion;
         $cliente->sexo = $request->sexo;
-        $cliente->telefono = $request->celular;
+        $cliente->telefono = $request->telefono;
+        $cliente->celular = $request->celular;
         $cliente->fechanacimiento = $request->fechanacimiento;
         $cliente->nit_ci = $request->nit_ci;
-        $cliente->estado = $request->email;
+        $cliente->estado = $request->estado;
+        $cliente->email = $request->email;
         $cliente->imagen = $request->imagen;
         $cliente->save();
         return redirect()->route('clientes.index');
+        
     }
 
     /**
@@ -107,8 +118,11 @@ class ClientesController extends Controller
      * @param  \App\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clientes $clientes)
+    public function destroy($id)
     {
+        //AGREGANDO LA ACCION A BITACORA
+        Auth()->user()->registerBinnacle();
+
         $cliente = Clientes::find($id);
         $cliente->delete();
         return back()->with('info', 'Fue eliminado exitosamente');
