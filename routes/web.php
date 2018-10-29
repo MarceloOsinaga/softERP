@@ -100,6 +100,11 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('clientes/{cliente}/edit', 'ClientesController@edit')->name('clientes.edit')
 		->middleware('permission:clientes.edit');
+
+					//Reporte de cliente
+    Route::post('sacarPdf', 'ClientesController@sacarPdf');
+
+
 	
 		//Categoria
 	Route::post('categoria/store', 'CategoriaController@store')->name('categorias.store')

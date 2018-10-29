@@ -174,6 +174,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
 
+        //Reportes
+        Vsmoraes\Pdf\PdfServiceProvider::class,
+
     ],
 
     /*
@@ -224,6 +227,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        //pdf
+        'PDF' => 'Vsmoraes\Pdf\PdfFacade',
 
     ],
 
