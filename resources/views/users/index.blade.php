@@ -22,8 +22,8 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="input-group">
-                            @can('')
-                            <a href="" 
+                            @can('users.regist')
+                            <a href="{{ route('users.regist') }}"
                             class="btn btn-sm btn-success">
                             <i class="fa fa-plus"></i> Nuevo Usuario
                             </a>

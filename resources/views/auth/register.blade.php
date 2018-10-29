@@ -7,11 +7,11 @@
         <h1 class="logo-name">SOf</h1>
 
     </div>
-    <h3>Register to IN+</h3>
+    <h3>Registre nuevo usuario</h3>
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="form-group">
-            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Name" name="name" value="{{ old('name') }}" required autofocus>
+            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nombre" name="name" value="{{ old('name') }}" required autofocus>
             @if ($errors->has('name'))
                 <span class="invalid-feedback" role="alert">
                          <strong>{{ $errors->first('name') }}</strong>
