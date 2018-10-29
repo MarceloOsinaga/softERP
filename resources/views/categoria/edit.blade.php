@@ -1,11 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-
 <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title panel-success">
-                <h5>Clientes </h5>
+                <h5>Editar categoria </h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -19,17 +18,17 @@
                     </a>
                 </div>
             </div>
-            @include('cliente.partials.aside')
             <div class="ibox-content" >
                
                 <div class="table-responsive">
 
-                <div class="panel-body">                    
-                    {{ Form::open(['route' => 'clientes.store']) }}
+                <div class="panel-body">                   
+                    {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id],
+                    'method' => 'PUT']) !!}
 
-                        @include('cliente.partials.form')
+                        @include('categoria.partials.form')
                         
-                    {{ Form::close() }}
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

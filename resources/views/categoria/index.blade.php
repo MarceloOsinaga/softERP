@@ -4,7 +4,7 @@
 <div class="col-lg-12">
     <div class="ibox float-e-margins">
         <div class="ibox-title panel-success">
-            <h5>Roles </h5>
+            <h5>Categorias </h5>
             <div class="ibox-tools">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -22,10 +22,10 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="input-group">
-                        @can('roles.create')
-                        <a href="{{ route('roles.create') }}" 
+                        @can('categorias.create')
+                        <a href="{{ route('categorias.create') }}" 
                         class="btn btn-sm btn-success">
-                        <i class="fa fa-plus"></i> Nuevo Rol
+                        <i class="fa fa-plus"></i> Nueva categoria
                         </a>
                         @endcan
                         
@@ -36,7 +36,7 @@
                 <div class="col-sm-3 pull-right">
                     <div class="input-group">
                         <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>
+                        <button type="button" class="btn btn-sm btn-primary"> Buscar!</button> </span>
                     </div>
                 </div>
             </div>
@@ -44,35 +44,37 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th width="10px">ID</th>
-                                <th>Nombre</th>
-                                <th colspan="3">&nbsp;</th>
+                                <th>Categiria</th>
+                                <th>Descripcion</th>
+                                <th colspan="2">ACCION</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($roles as $role)
+                            
+                            @foreach($categorias as $categoria)
+                            @if ($categoria->estado == 1)
                             <tr>
-                                <td>{{ $role->id }}</td>
-                                <td>{{ $role->name }}</td>
-                                @can('roles.show')
+                                <td>{{ $categoria->nombre }}</td>
+                                <td>{{ $categoria->descripcion }}</td>
+                                @can('categorias.show')
                                 <td width="10px">
-                                    <a href="{{ route('roles.show', $role->id) }}" 
+                                    <a href="{{ route('categorias.show', $categoria->id) }}" 
                                     class="btn btn-sm btn-primary btn-circle">
                                     <i class="fa fa-eye"></i>
                                     </a>
                                 </td>
                                 @endcan
-                                @can('roles.edit')
+                                @can('categorias.edit')
                                 <td width="10px">
-                                    <a href="{{ route('roles.edit', $role->id) }}" 
+                                    <a href="{{ route('categorias.edit', $categoria->id) }}" 
                                     class="btn btn-info btn-circle">
                                     <i class="fa fa-pencil-square-o"></i>
                                     </a>
                                 </td>
                                 @endcan
-                                @can('roles.destroy')
+                                @can('categorias.destroy')
                                 <td width="10px">
-                                    {!! Form::open(['route' => ['roles.destroy', $role->id], 
+                                    {!! Form::open(['route' => ['categorias.destroy', $categoria->id], 
                                     'method' => 'DELETE']) !!}
                                         <button class="btn  btn-sm btn-danger btn-circle">
                                             <i class="fa fa-trash-o"></i>
@@ -81,10 +83,13 @@
                                 </td>
                                 @endcan
                             </tr>
+                            @endif
                             @endforeach
+                            
+                            
                         </tbody>
                     </table>
-                    {{ $roles->render() }}
+                    {{ $categorias->render() }}
             </div>
         </div>
     </div>

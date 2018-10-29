@@ -98,5 +98,35 @@ class PermissionsTableSeeder extends Seeder
             'slug'          => 'clientes.destroy',
             'description'   => 'Podría eliminar cualquier cliente del sistema',      
         ]);
+        //Categoria
+        Permission::create([
+            'name'          => 'Navegar Categorias',
+            'slug'          => 'categorias.index',
+            'description'   => 'Lista y navega todos los categorias del sistema',
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle de un categoria',
+            'slug'          => 'categorias.show',
+            'description'   => 'Ve en detalle cada categoria del sistema',            
+        ]);
+        
+        Permission::create([
+            'name'          => 'Creación de categoria',
+            'slug'          => 'categorias.create',
+            'description'   => 'Podría crear nuevas Categorias en el sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Edición de Categorias',
+            'slug'          => 'categorias.edit',
+            'description'   => 'Podría editar cualquier dato de una categoria del sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Eliminar Categorias',
+            'slug'          => 'categorias.destroy',
+            'description'   => 'Podría eliminar cualquier categoria del sistema',      
+        ]);
     }
 }
