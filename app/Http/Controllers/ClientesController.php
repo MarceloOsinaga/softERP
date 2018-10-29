@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Clientes;
 use Illuminate\Http\Request;
 
+
+use Vsmoraes\Pdf\Pdf;
+use Illuminate\Support\Facades\DB;
+
 class ClientesController extends Controller
 {
     /**
@@ -12,6 +16,17 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+            private $pdf;
+
+   
+    public function __construct(Pdf $pdf)
+    {
+        $this->pdf = $pdf;
+    }
+
+
     public function index()
     {
         $clientes = Clientes::orderBy('id')->paginate(8);
@@ -127,4 +142,568 @@ class ClientesController extends Controller
         $cliente->delete();
         return back()->with('info', 'Fue eliminado exitosamente');
     }
+
+
+     public function sacarPdf(Request $request)
+    {
+
+       
+
+
+
+    $direccion=$request->input("direccion");
+    $sexo=$request->input("sexo");
+    $sexoSelect=$request->input("sexoSelect");
+
+    $celular=$request->input("celular");
+    $correo=$request->input("correo");
+    $estado=$request->input("estado");
+
+
+    
+    //dd($direccion,$sexo,$sexoSelect,$celular,$correo,$estado,$clientes);
+
+
+        /*      10000
+                11000
+                11100
+                11110
+                11111*/
+
+        if($direccion!=null && $sexo==null && $celular==null && $correo==null && $estado==null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte1')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo!=null && $celular==null && $correo==null && $estado==null){
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+            
+            
+
+            $html=view('cliente.reporte.reporte2')->with("clientes",$clientes);
+        
+        }
+
+
+
+        if($direccion!=null && $sexo!=null && $celular!=null && $correo==null && $estado==null){
+
+        
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+                      
+
+            $html=view('cliente.reporte.reporte3')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo!=null && $celular!=null && $correo!=null && $estado==null){
+
+            if($sexoSelect=="A"){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=="M"){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+            
+
+            $html=view('cliente.reporte.reporte4')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo!=null && $celular!=null && $correo!=null && $estado!=null){
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+            
+
+            $html=view('cliente.reporte.reporte5')->with("clientes",$clientes);
+        
+        }
+
+
+
+         /*     00000
+                00001
+                00011
+                00111
+                01111
+                */
+
+
+        if($direccion==null && $sexo==null && $celular==null && $correo==null && $estado==null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte6')->with("clientes",$clientes);
+        
+        }
+
+
+        if($direccion==null && $sexo==null && $celular==null && $correo==null && $estado!=null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte7')->with("clientes",$clientes);
+        
+        }
+
+
+        if($direccion==null && $sexo==null && $celular==null && $correo!=null && $estado!=null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte8')->with("clientes",$clientes);
+        
+        }
+
+
+        if($direccion==null && $sexo==null && $celular!=null && $correo!=null && $estado!=null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte9')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion==null && $sexo!=null && $celular!=null && $correo!=null && $estado!=null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte10')->with("clientes",$clientes);
+        
+        }
+
+
+
+         /*     
+                11010
+                11001
+                11011
+                */
+
+
+
+        if($direccion!=null && $sexo!=null && $celular==null && $correo!=null && $estado==null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte11')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo!=null && $celular==null && $correo==null && $estado!=null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte12')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo!=null && $celular==null && $correo!=null && $estado!=null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte13')->with("clientes",$clientes);
+        
+        }
+
+
+
+
+
+         /*     
+                10011
+                10100
+                10010
+                10001
+                10110
+                10101
+                10111
+                */
+
+
+
+        if($direccion!=null && $sexo==null && $celular==null && $correo!=null && $estado!=null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte14')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo==null && $celular!=null && $correo==null && $estado==null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte15')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo==null && $celular==null && $correo!=null && $estado==null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte16')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo==null && $celular==null && $correo==null && $estado!=null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte17')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo==null && $celular!=null && $correo!=null && $estado==null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte18')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo==null && $celular!=null && $correo==null && $estado!=null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte19')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion!=null && $sexo==null && $celular!=null && $correo!=null && $estado!=null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte20')->with("clientes",$clientes);
+        
+        }
+
+
+            /*     
+                
+                11101
+                01000
+                01001
+                01011
+                01101
+                01100
+                
+                */
+
+                   if($direccion!=null && $sexo!=null && $celular!=null && $correo==null && $estado!=null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte21')->with("clientes",$clientes);
+        
+        }
+
+
+   if($direccion==null && $sexo!=null && $celular==null && $correo==null && $estado==null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte22')->with("clientes",$clientes);
+        
+        }
+
+
+
+
+   if($direccion==null && $sexo!=null && $celular==null && $correo==null && $estado!=null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte23')->with("clientes",$clientes);
+        
+        }
+
+
+
+                
+
+   if($direccion==null && $sexo!=null && $celular==null && $correo!=null && $estado!=null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte24')->with("clientes",$clientes);
+        
+        }
+
+
+
+   if($direccion==null && $sexo!=null && $celular!=null && $correo==null && $estado!=null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte25')->with("clientes",$clientes);
+        
+        }
+
+
+
+   if($direccion==null && $sexo!=null && $celular!=null && $correo==null && $estado==null){
+
+
+            if($sexoSelect=='A'){
+
+                $clientes = DB::table('clientes')->get();        
+
+            }
+
+            if($sexoSelect=='M'){
+
+                $clientes = DB::table('clientes')->where('sexo','M')->get();      
+
+            }
+            if($sexoSelect=="F"){
+
+                $clientes = DB::table('clientes')->where('sexo','F')->get();
+            }
+
+            $html=view('cliente.reporte.reporte26')->with("clientes",$clientes);
+        
+        }
+
+
+
+
+
+
+
+            /*     
+                
+                00010
+                00100
+                00110
+                
+                */
+
+
+            if($direccion==null && $sexo==null && $celular==null && $correo!=null && $estado==null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte27')->with("clientes",$clientes);
+        
+        }
+
+        
+        if($direccion==null && $sexo==null && $celular!=null && $correo==null && $estado==null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte28')->with("clientes",$clientes);
+        
+        }
+
+        if($direccion==null && $sexo==null && $celular!=null && $correo!=null && $estado==null){
+
+            $clientes = DB::table('clientes')->get();        
+
+            $html=view('cliente.reporte.reporte29')->with("clientes",$clientes);
+        
+        }
+
+
+
+        return $this->pdf
+            ->load($html)
+            ->download();
+
+
+    
+
+ }
 }
