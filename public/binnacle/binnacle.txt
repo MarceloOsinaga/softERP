@@ -308,3 +308,4 @@ Fecha: 29-10-2018 08:33:57 || ID: 6 || Nombre: german gmendozaribera@gmail.com |
 Fecha: 29-10-2018 08:35:01 || ID: 6 || Nombre: german gmendozaribera@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
 Fecha: 29-10-2018 08:44:58 || ID: 6 || Nombre: german gmendozaribera@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
 Fecha: 29-10-2018 09:18:17 || ID: 6 || Nombre: german gmendozaribera@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 29-10-2018 17:55:35 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
