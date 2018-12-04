@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFacturacomprasTable extends Migration
+class TableCargo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateFacturacomprasTable extends Migration
      */
     public function up()
     {
-        Schema::create('facturacompras', function (Blueprint $table) {
+        Schema::create('Cargos', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('fecha_emision');
-            $table->integer('nro_factura');
-            $table->integer('nro_autorizacion');
-            $table->timestamps();
+            $table->string('nombre', 50);
+            $table->string('descripcion', 80)->nullable();
         });
     }
 
@@ -29,6 +27,6 @@ class CreateFacturacomprasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facturacompras');
+        Schema::dropIfExists('Cargos');
     }
 }
