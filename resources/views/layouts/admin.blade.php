@@ -93,8 +93,7 @@
                     <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Productos</span><span class="fa arrow"></span></a>
                      <ul class="nav nav-second-level collapse">
                         <li><a href="{{route('categorias.index')}}">Categoria</a></li>
-                        <li><a href="#">Nueva Compra</a></li>
-                        <li><a href="#">Administrar Compras</a></li>
+                       
                         
                     </ul>
                 </li>
@@ -152,11 +151,13 @@
                         @can('roles.index')
                         <li><a href="{{route('roles.index')}}">Roles</a></li>
                         @endcan
-                        <li><a href="#">Permisos</a></li>
                     </ul>
                 </li>
                 <li class="special_link">
                     <a href="{{route('backup.index')}}"><i class="fa fa-database"></i> <span class="nav-label">Base de Datos</span></a>
+                </li>
+                <li class="special_link">
+                    <a href="{{route('ayuda')}}"><i class="fa fa-question-circle"></i> <span class="nav-label">Ayuda</span></a>
                 </li>
             </ul>
 

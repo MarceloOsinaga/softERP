@@ -3,11 +3,11 @@
 	{{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'name']) }}
 </div>
 <div class="form-group">
-	{{ Form::label('apaterno', 'Ap. Paterno') }}
+	{{ Form::label('apaterno', 'Apellido. Paterno') }}
 	{{ Form::text('apaterno', null, ['class' => 'form-control', 'id' => 'slug']) }}
 </div>
 <div class="form-group">
-	{{ Form::label('amaterno', 'Ap. Paterno') }}
+	{{ Form::label('amaterno', 'Apeliido. Materno') }}
 	{{ Form::text('amaterno', null, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
@@ -41,7 +41,7 @@
 	{{ Form::text('estado', null, ['class' => 'form-control']) }}
 </div>--}}
 <div class="form-group">
-	{!! Form::label('estado', 'Sexo :') !!}
+	{!! Form::label('estado', 'Estado :') !!}
 	{!! Form::select('estado',['ACTIVO'=>'ACTIVO',
 									'SUSPENDIDO'=>'SUSPENDIDO']
 	,null, ['class' => 'form-control',]) !!}

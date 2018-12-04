@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use Illuminate\Http\Request;
+use DB;
 
 class CategoriaController extends Controller
 {
@@ -12,10 +13,24 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = Categoria::orderBy('id')->paginate(8);
-        return view('categoria.index', compact('categorias'));
+        //$categorias = Categoria::orderBy('id')->paginate(8);
+        //return view('categoria.index', compact('categorias'));
+
+        if($request)
+        {
+            //almacenar la busqueda
+            $querry =  trim ($request -> get('searchText'));
+            //obtener las categorias
+            $categorias = DB::table('categorias')
+                -> where('nombre','LIKE','%'.$querry.'%')
+                -> where('estado','=','1')
+                -> orderBy('id', 'asc')
+                -> paginate(7);
+
+            return view('categoria.index', ["categorias" => $categorias, "searchText" => $querry]);
+        }
     }
 
     /**
