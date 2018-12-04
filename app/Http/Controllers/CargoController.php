@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Cargo;
 use Illuminate\Http\Request;
-
+use DB;
 class CargoController extends Controller
 {
     /**
@@ -12,10 +11,11 @@ class CargoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $cargos = Cargo::orderBy('id')->paginate(8);
         return view('cargo.index', compact('cargos'));
+
     }
 
     /**

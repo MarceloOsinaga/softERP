@@ -22,13 +22,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="input-group">
-                            @can('users.regist')
-                            <a href="{{ route('users.regist') }}"
+                            
+                            <a href=""
                             class="btn btn-sm btn-success">
                             <i class="fa fa-plus"></i> Nuevo Usuario
                             </a>
                             |
-                            @endcan
+                            
                             <a href="" 
                             class="btn btn-sm btn-danger">
                             <i class="fa fa-file-pdf-o"></i>
@@ -65,7 +65,7 @@
                             <tr>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
-                                @if ($user->email != auth::user()->email)
+                                
                                 @can('users.show')
                                 <td width="10px">
                                     <a href="{{ route('users.show', $user->id) }}" 
@@ -93,7 +93,7 @@
                                     {!! Form::close() !!}
                                 </td>
                                 @endcan  
-                                @endif
+                                
                                
                             </tr>
                             @endforeach

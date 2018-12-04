@@ -31,7 +31,15 @@
                         
                     </div>
                 </div>
+                 <div class="col-sm-3 pull-right">
+                            <div class="input-group">
+                                <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> Buscar!</button> </span>
+                            </div>
+                    </div>
             </div>
+            
+                       
 
              <div class="ibox-content" >
 
@@ -51,13 +59,13 @@
                                         
                                         <div class="col-sm-2">
                                             <div class="form-group">
-                                                <input type="checkbox" class="form" name="direccion" id="direccion" value="1">Direccion<br> 
+                                                <input type="checkbox" class="form" name="direccion" id="direccion" value="1" checked>Direccion<br> 
                                             </div>
                                         </div>
                                      
                                         <div class="col-sm-2">
                                             <div class="form-group">
-                                                <input type="checkbox" class="form" name="sexo"  id="sexo"  value="1">Sexo<br> 
+                                                <input type="checkbox" class="form" name="sexo"  id="sexo"  value="1" checked>Sexo<br> 
                                             
                                                 <select id="sexoSelect" name="sexoSelect" class="form-control" required>
                                                         
@@ -66,8 +74,6 @@
                                                         <option value="F">Femenino</option>
                                                 
                                                 </select> 
-                            
-                                    
                                             </div>
                                         </div>
 
@@ -75,20 +81,20 @@
 
                                         <div class="col-sm-1">
                                             <div class="form-group">
-                                                <input type="checkbox" class="form" name="celular"  id="celular"  value="1">Celular<br> 
+                                                <input type="checkbox" class="form" name="celular"  id="celular"  value="1" checked>Celular<br> 
                                             </div>
                                         </div>
 
 
                                         <div class="col-sm-1">
                                             <div class="form-group">
-                                                <input type="checkbox" class="form" name="correo"  id="correo"  value="1">Correo<br> 
+                                                <input type="checkbox" class="form" name="correo"  id="correo"  value="1" checked>Correo<br> 
                                             </div>
                                         </div>
 
                                         <div class="col-sm-1">
                                             <div class="form-group">
-                                                <input type="checkbox" class="form" name="estado"  id="estado"  value="1">Estado<br> 
+                                                <input type="checkbox" class="form" name="estado"  id="estado"  value="1" checked>Estado<br> 
                                             </div>
                                         </div>
 
@@ -100,23 +106,6 @@
                                     </div>
                         
                 </form>
-            </div>
-
-
-
-
-
-        <div class="ibox-content" >
-            <div class="row">
-                <div class="col-sm-3 pull-right">
-                    <div class="input-group">
-                        <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary"> Buscar!</button> </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
              
 
             <div class="table-responsive">

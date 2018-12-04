@@ -146,7 +146,7 @@ class ClientesController extends Controller
 
      public function sacarPdf(Request $request)
     {
-
+        Auth()->user()->registerBinnacle();
        
 
 
