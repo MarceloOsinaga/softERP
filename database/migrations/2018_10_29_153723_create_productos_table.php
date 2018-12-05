@@ -15,8 +15,16 @@ class CreateProductosTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('codigo_barra')->nullable();
+            $table->string('nombre', 50)->unique();
+            $table->string('descripcion', 80)->nullable();
+            $table->string('marca', 50)->nullable();
+            $table->double('costo_unitario');
+            $table->double('precio_venta');
+            $table->char('estado')->default('A'); // A = haceptado R = rechasado
+            $table->integer('id_categoria')->unsigned();
             $table->timestamps();
+            $table->foreign('id_Categoria')->references('id')->on('Categorias'); 
         });
     }
 
