@@ -109,14 +109,18 @@
                         
                     </ul>
                 </li>
+
                 <li>
                     <a href="{{ route('proveedors.index') }}"><i class="fa fa-suitcase"></i> <span class="nav-label">Proveedores</span></a>
                 </li>
+
                 <li>
                     <a href="#"><i class="fa fa-usd"></i> <span class="nav-label">Venta </span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
+                        <li><a href="formapago">Formas de pago</a></li>
                         <li><a href="#">Facturacion</a></li>
                         <li><a href="#">Administrar Facturas</a></li>
+                        
                     </ul>
                 </li>
                 <li>

@@ -15,7 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
 Auth::routes();
+
+
+
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -41,6 +47,29 @@ Route::resource('backup', 'BackupController');
 
 
 Route::middleware(['auth'])->group(function () {
+
+	Route::post('formapago/store', 'FormapagoController@store')->name('formapago.store')
+		->middleware('permission:formapago.create');
+
+	Route::get('formapago', 'FormapagoController@index')->name('formapago.index')
+		->middleware('permission:formapago.index');
+
+	Route::get('formapago/create', 'FormapagoController@create')->name('formapago.create')
+		->middleware('permission:formapago.create');
+
+	Route::put('formapago/{formapago}', 'FormapagoController@update')->name('formapago.update')
+		->middleware('permission:formapago.edit');
+
+	Route::get('formapago/{formapago}', 'FormapagoController@show')->name('formapago.show')
+		->middleware('permission:formapago.show');
+
+	Route::delete('formapago/{formapago}', 'FormapagoController@destroy')->name('formapago.destroy')
+		->middleware('permission:formapago.destroy');
+
+	Route::get('formapago/{formapago}/edit', 'FormapagoController@edit')->name('formapago.edit')
+		->middleware('permission:formapago.edit');
+
+
 	//Roles
 	Route::post('roles/store', 'RoleController@store')->name('roles.store')
 		->middleware('permission:roles.create');

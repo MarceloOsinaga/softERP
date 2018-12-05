@@ -342,3 +342,47 @@ Fecha: 04-12-2018 01:17:30 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || I
 Fecha: 04-12-2018 02:01:52 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
 Fecha: 04-12-2018 02:20:01 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
 Fecha: 04-12-2018 02:20:16 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/categoria/create
+Fecha: 05-12-2018 01:02:40 || ID: 6 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 01:03:20 || ID: 6 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 01:06:46 || ID: 6 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 03:59:52 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:03:54 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:06:32 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:08:03 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:08:14 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:09:09 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:13:49 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:16:38 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:16:59 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:28:16 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:30:22 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:31:20 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:33:58 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:38:33 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:39:40 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:44:53 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 04:47:13 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 05:13:33 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 05:18:24 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 05:24:47 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 05:25:59 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/home
+Fecha: 05-12-2018 08:02:02 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 08:28:46 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 09:46:33 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/create
+Fecha: 05-12-2018 09:46:52 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 09:47:10 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 09:50:57 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 09:52:41 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 09:55:20 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/create
+Fecha: 05-12-2018 09:55:35 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 09:56:18 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/create
+Fecha: 05-12-2018 09:59:16 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/create
+Fecha: 05-12-2018 10:01:28 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/create
+Fecha: 05-12-2018 10:23:11 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/1
+Fecha: 05-12-2018 10:31:54 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/1/edit
+Fecha: 05-12-2018 10:34:55 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/1/edit
+Fecha: 05-12-2018 10:40:34 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/create
+Fecha: 05-12-2018 10:40:52 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/2/edit
+Fecha: 05-12-2018 10:41:09 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/1/edit
+Fecha: 05-12-2018 10:44:25 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/2
+Fecha: 05-12-2018 10:44:29 || ID: 1 || Nombre: Luis Andres luisandresbarja@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/formapago/create
