@@ -215,5 +215,26 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('departamentos/{cargo}/edit', 'DepartamentoController@edit')->name('departamentos.edit')
 		->middleware('permission:departamentos.edit');
-	
+    //Empleados
+    Route::post('empleados/store', 'EmpleadoController@store')->name('empleados.store')
+        ->middleware('permission:empleados.create');
+
+    Route::get('empleados', 'EmpleadoController@index')->name('empleados.index')
+        ->middleware('permission:empleados.index');
+
+    Route::get('empleados/create', 'EmpleadoController@create')->name('empleados.create')
+        ->middleware('permission:empleados.create');
+
+    Route::put('empleados/{empleado}', 'EmpleadoController@update')->name('empleados.update')
+        ->middleware('permission:empleados.edit');
+
+    Route::get('empleados/{empleado}', 'DepartamentoController@show')->name('empleados.show')
+        ->middleware('permission:empleados.show');
+
+    Route::delete('empleados/{empleado}', 'EmpleadoController@destroy')->name('empleados.destroy')
+        ->middleware('permission:empleados.destroy');
+
+    Route::get('empleados/{empleado}/edit', 'EmpleadoController@edit')->name('empleados.edit')
+        ->middleware('permission:empleados.edit');
+
 });

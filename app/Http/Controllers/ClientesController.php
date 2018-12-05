@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Clientes;
 use Illuminate\Http\Request;
-
-
 use Vsmoraes\Pdf\Pdf;
-use Illuminate\Support\Facades\DB;
+use DB;
 
 class ClientesController extends Controller
 {
@@ -27,10 +25,24 @@ class ClientesController extends Controller
     }
 
 
-    public function index()
+    public function index( Request $request)
     {
-        $clientes = Clientes::orderBy('id')->paginate(8);
-        return view('cliente.index', compact('clientes'));
+        //$clientes = Clientes::orderBy('id')->paginate(8);
+        //return view('cliente.index', compact('clientes'));
+
+        if($request)
+        {
+            //almacenar la busqueda
+            $querry =  trim ($request -> get('searchText'));
+            //obtener las categorias
+            $clientes = DB::table('clientes')
+                -> where('nombre','LIKE','%'.$querry.'%')
+                -> where('estado','=','ACTIVO')
+                -> orderBy('id', 'asc')
+                -> paginate(9);
+
+            return view('cliente.index', ["clientes" => $clientes, "searchText" => $querry]);
+        }
     }
 
     /**
@@ -133,14 +145,20 @@ class ClientesController extends Controller
      * @param  \App\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         //AGREGANDO LA ACCION A BITACORA
         Auth()->user()->registerBinnacle();
 
         $cliente = Clientes::find($id);
-        $cliente->delete();
+        $cliente->estado ="INACTIVO";
+        $cliente->save();
         return back()->with('info', 'Fue eliminado exitosamente');
+
+        //$categoria = Categoria::find($id);
+        //$categoria->estado =0;
+        //$categoria->save();
+        //return redirect()->route('categorias.index');
     }
 
 

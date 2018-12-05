@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Proveedor;
 use Illuminate\Http\Request;
-
+use DB;
 class ProveedorController extends Controller
 {
    
@@ -13,10 +13,23 @@ class ProveedorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $proveedors = proveedor::orderBy('id')->paginate(8);
-        return view('proveedor.index', compact('proveedors'));
+        //$proveedors = proveedor::orderBy('id')->paginate(8);
+        //return view('proveedor.index', compact('proveedors'));
+        if($request)
+        {
+            //almacenar la busqueda
+            $querry =  trim ($request -> get('searchText'));
+            //obtener las categorias
+            $proveedors = DB::table('proveedors')
+                -> where('nombreproveedor','LIKE','%'.$querry.'%')
+                -> where('estado','=','1')
+                -> orderBy('id', 'asc')
+                -> paginate(9);
+
+            return view('proveedor.index', ["proveedors" => $proveedors, "searchText" => $querry]);
+        }
     }
 
     /**

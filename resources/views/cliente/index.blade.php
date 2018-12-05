@@ -28,15 +28,10 @@
                         <i class="fa fa-plus"></i> Nuevo Cliente
                         </a>
                         @endcan
-                        
+
                     </div>
                 </div>
-                 <div class="col-sm-3 pull-right">
-                            <div class="input-group">
-                                <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                                <button type="button" class="btn btn-sm btn-primary"> Buscar!</button> </span>
-                            </div>
-                    </div>
+                @include('cliente.search')
             </div>
             
                        
