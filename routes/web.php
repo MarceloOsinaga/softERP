@@ -20,8 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -355,4 +353,21 @@ Route::middleware(['auth'])->group(function () {
 	 Route::get('ventas/{venta}/edit', 'VentasController@edit')->name('ventas.edit')
 		 ->middleware('permission:ventas.edit');
 
+		 //Route::resource('compras', 'CompraController')->middleware('permission:compras');
+		 //compras
+		 Route::resource('compras', 'CompraController');
+	 Route::post('compras/store', 'CompraController@store')->name('compras.store')
+	 ->middleware('permission:compras.create');
+ 
+	 Route::get('compras', 'CompraController@index')->name('compras.index')
+		 ->middleware('permission:compras.index');
+ 
+	 Route::get('compras/create', 'CompraController@create')->name('compras.create')
+		 ->middleware('permission:compras.create');
+ 
+	 Route::get('compras/{compra}', 'CompraController@show')->name('compras.show')
+		 ->middleware('permission:compras.show');
+ 
+	 Route::delete('compras/{compra}', 'CompraController@destroy')->name('compras.destroy')
+		 ->middleware('permission:compras.destroy');
 });
