@@ -83,6 +83,7 @@
                 <li>
                     <a href="#"><i class="fa fa-truck"></i> <span class="nav-label">Compras</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ route('proveedors.index') }}">Proveedor</a></li>
                         <li><a href="#">Orden de Compra</a></li>
                         <li><a href="#">Nueva Compra</a></li>
                         <li><a href="#">Administrar Compras</a></li>
@@ -97,9 +98,9 @@
                         
                     </ul>
                 </li>
-                <li>
+                {{--<li>
                     <a href="{{route('clientes.index')}}"><i class="fa fa-user"></i> <span class="nav-label">Clientes</span></a>
-                </li>
+                </li>--}}
                 <li>
                     <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Recursos Humanos</span><span class="fa arrow"></span></a>
                      <ul class="nav nav-second-level collapse">
@@ -109,16 +110,7 @@
                         
                     </ul>
                 </li>
-
-                <li>
-                    <a href="{{ route('proveedors.index') }}"><i class="fa fa-suitcase"></i> <span class="nav-label">Proveedores</span></a>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fa fa-usd"></i> <span class="nav-label">Venta </span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="formapago">Formas de pago</a></li>
-                        <li><a href="#">Facturacion</a></li>
+      <li><a href="#">Facturacion</a></li>
                         <li><a href="#">Administrar Facturas</a></li>
                         
                     </ul>

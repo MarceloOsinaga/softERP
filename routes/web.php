@@ -244,5 +244,93 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('departamentos/{cargo}/edit', 'DepartamentoController@edit')->name('departamentos.edit')
 		->middleware('permission:departamentos.edit');
-	
+    //Empleados
+    Route::post('empleados/store', 'EmpleadoController@store')->name('empleados.store')
+        ->middleware('permission:empleados.create');
+
+    Route::get('empleados', 'EmpleadoController@index')->name('empleados.index')
+        ->middleware('permission:empleados.index');
+
+    Route::get('empleados/create', 'EmpleadoController@create')->name('empleados.create')
+        ->middleware('permission:empleados.create');
+
+    Route::put('empleados/{empleado}', 'EmpleadoController@update')->name('empleados.update')
+        ->middleware('permission:empleados.edit');
+
+    Route::get('empleados/{empleado}', 'DepartamentoController@show')->name('empleados.show')
+        ->middleware('permission:empleados.show');
+
+    Route::delete('empleados/{empleado}', 'EmpleadoController@destroy')->name('empleados.destroy')
+        ->middleware('permission:empleados.destroy');
+
+    Route::get('empleados/{empleado}/edit', 'EmpleadoController@edit')->name('empleados.edit')
+		->middleware('permission:empleados.edit');
+		
+
+		 //Ciudad
+	Route::post('ciudads/store', 'CiudadController@store')->name('ciudads.store')
+		 ->middleware('permission:ciudads.create');
+ 
+	 Route::get('ciudads', 'CiudadController@index')->name('ciudads.index')
+		 ->middleware('permission:ciudads.index');
+ 
+	 Route::get('ciudads/create', 'CiudadController@create')->name('ciudads.create')
+		 ->middleware('permission:ciudads.create');
+ 
+	 Route::put('ciudads/{ciudad}', 'CiudadController@update')->name('ciudads.update')
+		 ->middleware('permission:ciudads.edit');
+ 
+	 Route::get('ciudads/{ciudad}', 'CiudadController@show')->name('ciudads.show')
+		 ->middleware('permission:ciudads.show');
+ 
+	 Route::delete('ciudads/{ciudad}', 'CiudadController@destroy')->name('ciudads.destroy')
+		 ->middleware('permission:ciudads.destroy');
+ 
+	 Route::get('ciudads/{ciudad}/edit', 'CiudadController@edit')->name('ciudads.edit')
+		 ->middleware('permission:ciudads.edit');
+
+		 //Ciudad
+	Route::post('sucursals/store', 'SucursalController@store')->name('sucursals.store')
+		 ->middleware('permission:ciudads.create');
+ 
+	 Route::get('sucursals', 'SucursalController@index')->name('sucursals.index')
+		 ->middleware('permission:ciudads.index');
+ 
+	 Route::get('sucursals/create', 'SucursalController@create')->name('sucursals.create')
+		 ->middleware('permission:ciudads.create');
+ 
+	 Route::put('sucursals/{sucursal}', 'SucursalController@update')->name('sucursals.update')
+		 ->middleware('permission:ciudads.edit');
+ 
+	 Route::get('sucursals/{sucursal}', 'SucursalController@show')->name('sucursals.show')
+		 ->middleware('permission:ciudads.show');
+ 
+	 Route::delete('sucursals/{sucursal}', 'SucursalController@destroy')->name('sucursals.destroy')
+		 ->middleware('permission:ciudads.destroy');
+ 
+	 Route::get('sucursals/{sucursal}/edit', 'SucursalController@edit')->name('sucursals.edit')
+		 ->middleware('permission:ciudads.edit');
+
+		  //Producto
+	Route::post('productos/store', 'ProductoController@store')->name('productos.store')
+		 ->middleware('permission:productos.create');
+ 
+	 Route::get('productos', 'ProductoController@index')->name('productos.index')
+		 ->middleware('permission:productos.index');
+ 
+	 Route::get('productos/create', 'ProductoController@create')->name('productos.create')
+		 ->middleware('permission:productos.create');
+ 
+	 Route::put('productos/{producto}', 'ProductoController@update')->name('productos.update')
+		 ->middleware('permission:productos.edit');
+ 
+	 Route::get('productos/{producto}', 'ProductoController@show')->name('productos.show')
+		 ->middleware('permission:productos.show');
+ 
+	 Route::delete('productos/{producto}', 'ProductoController@destroy')->name('productos.destroy')
+		 ->middleware('permission:productos.destroy');
+ 
+	 Route::get('productos/{producto}/edit', 'ProductoController@edit')->name('productos.edit')
+		 ->middleware('permission:productos.edit');
+
 });
