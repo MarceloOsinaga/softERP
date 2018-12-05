@@ -333,4 +333,26 @@ Route::middleware(['auth'])->group(function () {
 	 Route::get('productos/{producto}/edit', 'ProductoController@edit')->name('productos.edit')
 		 ->middleware('permission:productos.edit');
 
+		  //Venta
+	Route::post('ventas/store', 'VentasController@store')->name('ventas.store')
+		 ->middleware('permission:prventasoductos.create');
+ 
+	 Route::get('ventas', 'VentasController@index')->name('ventas.index')
+		 ->middleware('permission:ventas.index');
+ 
+	 Route::get('ventas/create', 'VentasController@create')->name('ventas.create')
+		 ->middleware('permission:ventas.create');
+ 
+	 Route::put('ventas/{venta}', 'VentasController@update')->name('ventas.update')
+		 ->middleware('permission:ventas.edit');
+ 
+	 Route::get('ventas/{venta}', 'VentasController@show')->name('ventas.show')
+		 ->middleware('permission:venta.show');
+ 
+	 Route::delete('ventas/{venta}', 'VentasController@destroy')->name('ventas.destroy')
+		 ->middleware('permission:ventas.destroy');
+ 
+	 Route::get('ventas/{venta}/edit', 'VentasController@edit')->name('ventas.edit')
+		 ->middleware('permission:ventas.edit');
+
 });

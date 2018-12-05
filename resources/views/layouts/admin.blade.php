@@ -514,7 +514,7 @@
     <script src="{{asset('js/plugins/iCheck/icheck.min.js')}}"></script>
 
     <script src="{{asset('js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
-
+    @stack('scripts')
     <script>
         $(document).ready(function() {
             $('.chart').easyPieChart({

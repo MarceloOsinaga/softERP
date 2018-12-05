@@ -18,7 +18,8 @@ class Producto extends Model
     	'descripcion',
     	'marca',
         'costo_unitario',
-    	'precio_venta',
+        'precio_venta',
+        'stock',
     	'estado',
     	'id_categoria'
     ];
