@@ -84,79 +84,81 @@
                     <a href="#"><i class="fa fa-truck"></i> <span class="nav-label">Compras</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="{{ route('proveedors.index') }}">Proveedor</a></li>
-                        <li><a href="#">Orden de Compra</a></li>
-                        <li><a href="#">Nueva Compra</a></li>
-                        <li><a href="#">Administrar Compras</a></li>
-                        
+                    <li><a href="{{ route('compras.index')}}">Orden de Compra</a></li>
+                    <li><a href="{{route('compras.create')}}">Nueva Compra</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Productos</span><span class="fa arrow"></span></a>
                      <ul class="nav nav-second-level collapse">
+                            <li><a href="{{route('productos.index')}}">Articulos</a></li>
                         <li><a href="{{route('categorias.index')}}">Categoria</a></li>
                        
                         
                     </ul>
                 </li>
-                {{--<li>
-                    <a href="{{route('clientes.index')}}"><i class="fa fa-user"></i> <span class="nav-label">Clientes</span></a>
-                </li>--}}
+                <li>
+                        <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Ventas</span><span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level collapse">
+                         <li><a href="{{route('clientes.index')}}">Clientes</a></li>
+                            <li><a href="#">Lista de ventas</a></li>
+                            <li><a href="#">Nueva venta</a></li>
+                        </ul>
+                    </li>
+                
                 <li>
                     <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Recursos Humanos</span><span class="fa arrow"></span></a>
                      <ul class="nav nav-second-level collapse">
                         <li><a href="{{route('departamentos.index')}}">Departamento</a></li>
                         <li><a href="{{route('cargos.index')}}">Cargo</a></li>
-                        <li><a href="#">Empleado</a></li>
+                     <li><a href="{{route('empleados.index')}}">Empleado</a></li>
                         
                     </ul>
                 </li>
-      <li><a href="#">Facturacion</a></li>
-                        <li><a href="#">Administrar Facturas</a></li>
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reportes</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Administrar Facturas</a></li>
-                    </ul>
-                </li>
-                <li>
-                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Sucursales</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ route('paiss.index') }}">Lista de Pais</a></li>
-                            <li><a href="#">Lista de Ciudades</a></li>
-                            <li><a href="#">Lista de sucursales</a></li>
-                        </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Configuracion </span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="#">Nueva Venta</a></li>
-                        <li><a href="#">Administrar Facturas</a></li>
-                    </ul>
-                </li>
-               
-                <li>
-                    <a href="#"><i class="fa fa-lock"></i> <span class="nav-label">Seguridad</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        @can('users.index')
-                        <li><a href="{{route('users.index')}}">Usuarios</a></li>
-                        @endcan
-                        @can('roles.index')
-                        <li><a href="{{route('roles.index')}}">Roles</a></li>
-                        @endcan
-                    </ul>
-                </li>
-                <li class="special_link">
-                    <a href="{{route('backup.index')}}"><i class="fa fa-database"></i> <span class="nav-label">Base de Datos</span></a>
-                </li>
-                <li class="special_link">
-                    <a href="{{route('ayuda')}}"><i class="fa fa-question-circle"></i> <span class="nav-label">Ayuda</span></a>
-                </li>
-            </ul>
+                <li><a href="#">Facturacion</a></li>
 
+                <li><a href="#">Administrar Facturas</a></li>
+                
+                <li>
+                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reportes</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="#"></a></li>
+                            <li><a href="#">Administrar Facturas</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                            <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Sucursales</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="{{ route('paiss.index') }}">Lista de Pais</a></li>
+                                <li><a href="#">Lista de Ciudades</a></li>
+                                <li><a href="#">Lista de sucursales</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                            <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Configuracion </span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="#">Nueva Venta</a></li>
+                                <li><a href="#">Administrar Facturas</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                                <a href="#"><i class="fa fa-lock"></i> <span class="nav-label">Seguridad</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse">
+                                    @can('users.index')
+                                    <li><a href="{{route('users.index')}}">Usuarios</a></li>
+                                    @endcan
+                                    @can('roles.index')
+                                    <li><a href="{{route('roles.index')}}">Roles</a></li>
+                                    @endcan
+                                </ul>
+                            </li>
+                            <li class="special_link">
+                                    <a href="{{route('backup.index')}}"><i class="fa fa-database"></i> <span class="nav-label">Base de Datos</span></a>
+                                </li>
+                                <li class="special_link">
+                                    <a href="{{route('ayuda')}}"><i class="fa fa-question-circle"></i> <span class="nav-label">Ayuda</span></a>
+                                </li>
+                    </ul>
         </div>
     </nav>
 

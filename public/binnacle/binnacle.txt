@@ -437,3 +437,8 @@ Fecha: 04-12-2018 02:20:16 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || I
 >>>>>>> ac93f5b9551180d4609faa2954d8b9bcb382d361
 
 Fecha: 05-12-2018 16:20:21 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/proveedor/create
+Fecha: 05-12-2018 16:35:42 || ID: 6 || Nombre: german gmendozaribera@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 16:37:06 || ID: 6 || Nombre: german gmendozaribera@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 16:48:32 || ID: 6 || Nombre: german gmendozaribera@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 16:48:56 || ID: 6 || Nombre: german gmendozaribera@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+Fecha: 05-12-2018 16:49:21 || ID: 6 || Nombre: german gmendozaribera@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
