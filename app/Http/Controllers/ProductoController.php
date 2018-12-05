@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
+use App\Categoria;
 use Illuminate\Http\Request;
+use DB;
 
 class ProductoController extends Controller
 {
@@ -12,9 +14,21 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $request)
     {
-        //
+        if($request)
+        {
+            //almacenar la busqueda
+            $querry =  trim ($request -> get('searchText'));
+            //obtener las categorias
+            $productos = DB::table('productos')
+                -> where('nombre','LIKE','%'.$querry.'%')
+                -> where('estado','=','A')
+                -> orderBy('id', 'asc')
+                -> paginate(9);
+
+            return view('producto.index', ["productos" => $productos, "searchText" => $querry]);
+        }
     }
 
     /**
@@ -24,7 +38,15 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        //AGREGANDO LA ACCION A BITACORA
+        Auth()->user()->registerBinnacle();
+
+        //$empleado = Empleado::select('id','nombre')->get();
+        //return view('empleado.create')->with('empleado');
+        
+        $categorias = Categoria::select('id','nombre')->get();
+        return view('producto.create')->with('categorias',$categorias);
+        //return view('empleado.create');
     }
 
     /**
@@ -35,7 +57,17 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = new Producto;
+        $producto->codigo_barra  = $request->codigo_barra;
+        $producto->nombre  = $request->nombre;
+        $producto->descripcion = $request->descripcion;
+        $producto->marca = $request->marca;
+        $producto->costo_unitario = $request->costo_unitario;
+        $producto->precio_venta = $request->precio_venta;
+        $producto->estado = "A";
+        $producto->id_categoria = $request->id_categoria;
+        $producto->save();
+        return redirect()->route('productos.index');
     }
 
     /**

@@ -347,3 +347,5 @@ Fecha: 05-12-2018 14:07:46 || ID: 6 || Nombre: german gmendoza@gmail.com || IP: 
 Fecha: 05-12-2018 14:34:23 || ID: 6 || Nombre: german gmendoza@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
 Fecha: 05-12-2018 14:36:07 || ID: 6 || Nombre: german gmendoza@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/departamentos/create
 Fecha: 05-12-2018 15:02:30 || ID: 6 || Nombre: german gmendoza@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home
+
+Fecha: 05-12-2018 15:44:51 || ID: 6 || Nombre: german gmendoza@gmail.com || IP: 127.0.0.1 || Url: http://127.0.0.1:8000/home

@@ -32,14 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-3 pull-right">
-                    <div class="input-group">
-                        <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary"> Buscar!</button> </span>
-                    </div>
-                </div>
-            </div>
+            @include('proveedor.search')
             <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>

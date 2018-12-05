@@ -28,18 +28,81 @@
                         <i class="fa fa-plus"></i> Nuevo Cliente
                         </a>
                         @endcan
+
+                    </div>
+                </div>
+                @include('cliente.search')
+            </div>
+            
+                       
+
+             <div class="ibox-content" >
+
+                <h3>REPORTE: </h3>
+
+            <form   action="{{ url('sacarPdf') }}"  method="post"  >
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"> 
+                
+                 <div class="row">
+
+
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Nombre Completo</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <input type="checkbox" class="form" name="direccion" id="direccion" value="1" checked>Direccion<br> 
+                                            </div>
+                                        </div>
+                                     
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <input type="checkbox" class="form" name="sexo"  id="sexo"  value="1" checked>Sexo<br> 
+                                            
+                                                <select id="sexoSelect" name="sexoSelect" class="form-control" required>
+                                                        
+                                                        <option value="A">Ambos</option>
+                                                        <option value="M">Masculino</option>
+                                                        <option value="F">Femenino</option>
+                                                
+                                                </select> 
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-sm-1">
+                                            <div class="form-group">
+                                                <input type="checkbox" class="form" name="celular"  id="celular"  value="1" checked>Celular<br> 
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-1">
+                                            <div class="form-group">
+                                                <input type="checkbox" class="form" name="correo"  id="correo"  value="1" checked>Correo<br> 
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-1">
+                                            <div class="form-group">
+                                                <input type="checkbox" class="form" name="estado"  id="estado"  value="1" checked>Estado<br> 
+                                            </div>
+                                        </div>
+
+
+
+                                          
+                                     
+                                         <button type="submit" class="btn btn-primary">Pdf</button>
+                                    </div>
                         
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 pull-right">
-                    <div class="input-group">
-                        <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary"> Buscar!</button> </span>
-                    </div>
-                </div>
-            </div>
+                </form>
+             
+
             <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>

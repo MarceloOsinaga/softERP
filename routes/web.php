@@ -15,10 +15,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
 Auth::routes();
+
+
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('hola', 'PruebaController');
 Route::resource('hom','TemaController');
+Route::get('ayuda', 'AyudaController@index')->name('ayuda');
 
 
 
@@ -29,6 +48,29 @@ Route::resource('backup', 'BackupController');
 
 
 Route::middleware(['auth'])->group(function () {
+
+	Route::post('formapago/store', 'FormapagoController@store')->name('formapago.store')
+		->middleware('permission:formapago.create');
+
+	Route::get('formapago', 'FormapagoController@index')->name('formapago.index')
+		->middleware('permission:formapago.index');
+
+	Route::get('formapago/create', 'FormapagoController@create')->name('formapago.create')
+		->middleware('permission:formapago.create');
+
+	Route::put('formapago/{formapago}', 'FormapagoController@update')->name('formapago.update')
+		->middleware('permission:formapago.edit');
+
+	Route::get('formapago/{formapago}', 'FormapagoController@show')->name('formapago.show')
+		->middleware('permission:formapago.show');
+
+	Route::delete('formapago/{formapago}', 'FormapagoController@destroy')->name('formapago.destroy')
+		->middleware('permission:formapago.destroy');
+
+	Route::get('formapago/{formapago}/edit', 'FormapagoController@edit')->name('formapago.edit')
+		->middleware('permission:formapago.edit');
+
+
 	//Roles
 	Route::post('roles/store', 'RoleController@store')->name('roles.store')
 		->middleware('permission:roles.create');
@@ -88,6 +130,11 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('clientes/{cliente}/edit', 'ClientesController@edit')->name('clientes.edit')
 		->middleware('permission:clientes.edit');
+
+					//Reporte de cliente
+    Route::post('sacarPdf', 'ClientesController@sacarPdf');
+
+
 	
 		//Categoria
 	Route::post('categoria/store', 'CategoriaController@store')->name('categorias.store')
@@ -215,4 +262,115 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::delete('compras/{compra}', 'CompraController@destroy')->name('compras.destroy')
 		->middleware('permission:compras.destroy');
+    //Empleados
+    Route::post('empleados/store', 'EmpleadoController@store')->name('empleados.store')
+        ->middleware('permission:empleados.create');
+
+    Route::get('empleados', 'EmpleadoController@index')->name('empleados.index')
+        ->middleware('permission:empleados.index');
+
+    Route::get('empleados/create', 'EmpleadoController@create')->name('empleados.create')
+        ->middleware('permission:empleados.create');
+
+    Route::put('empleados/{empleado}', 'EmpleadoController@update')->name('empleados.update')
+        ->middleware('permission:empleados.edit');
+
+    Route::get('empleados/{empleado}', 'DepartamentoController@show')->name('empleados.show')
+        ->middleware('permission:empleados.show');
+
+    Route::delete('empleados/{empleado}', 'EmpleadoController@destroy')->name('empleados.destroy')
+        ->middleware('permission:empleados.destroy');
+
+    Route::get('empleados/{empleado}/edit', 'EmpleadoController@edit')->name('empleados.edit')
+		->middleware('permission:empleados.edit');
+		
+
+		 //Ciudad
+	Route::post('ciudads/store', 'CiudadController@store')->name('ciudads.store')
+		 ->middleware('permission:ciudads.create');
+ 
+	 Route::get('ciudads', 'CiudadController@index')->name('ciudads.index')
+		 ->middleware('permission:ciudads.index');
+ 
+	 Route::get('ciudads/create', 'CiudadController@create')->name('ciudads.create')
+		 ->middleware('permission:ciudads.create');
+ 
+	 Route::put('ciudads/{ciudad}', 'CiudadController@update')->name('ciudads.update')
+		 ->middleware('permission:ciudads.edit');
+ 
+	 Route::get('ciudads/{ciudad}', 'CiudadController@show')->name('ciudads.show')
+		 ->middleware('permission:ciudads.show');
+ 
+	 Route::delete('ciudads/{ciudad}', 'CiudadController@destroy')->name('ciudads.destroy')
+		 ->middleware('permission:ciudads.destroy');
+ 
+	 Route::get('ciudads/{ciudad}/edit', 'CiudadController@edit')->name('ciudads.edit')
+		 ->middleware('permission:ciudads.edit');
+
+		 //Ciudad
+	Route::post('sucursals/store', 'SucursalController@store')->name('sucursals.store')
+		 ->middleware('permission:ciudads.create');
+ 
+	 Route::get('sucursals', 'SucursalController@index')->name('sucursals.index')
+		 ->middleware('permission:ciudads.index');
+ 
+	 Route::get('sucursals/create', 'SucursalController@create')->name('sucursals.create')
+		 ->middleware('permission:ciudads.create');
+ 
+	 Route::put('sucursals/{sucursal}', 'SucursalController@update')->name('sucursals.update')
+		 ->middleware('permission:ciudads.edit');
+ 
+	 Route::get('sucursals/{sucursal}', 'SucursalController@show')->name('sucursals.show')
+		 ->middleware('permission:ciudads.show');
+ 
+	 Route::delete('sucursals/{sucursal}', 'SucursalController@destroy')->name('sucursals.destroy')
+		 ->middleware('permission:ciudads.destroy');
+ 
+	 Route::get('sucursals/{sucursal}/edit', 'SucursalController@edit')->name('sucursals.edit')
+		 ->middleware('permission:ciudads.edit');
+
+		  //Producto
+	Route::post('productos/store', 'ProductoController@store')->name('productos.store')
+		 ->middleware('permission:productos.create');
+ 
+	 Route::get('productos', 'ProductoController@index')->name('productos.index')
+		 ->middleware('permission:productos.index');
+ 
+	 Route::get('productos/create', 'ProductoController@create')->name('productos.create')
+		 ->middleware('permission:productos.create');
+ 
+	 Route::put('productos/{producto}', 'ProductoController@update')->name('productos.update')
+		 ->middleware('permission:productos.edit');
+ 
+	 Route::get('productos/{producto}', 'ProductoController@show')->name('productos.show')
+		 ->middleware('permission:productos.show');
+ 
+	 Route::delete('productos/{producto}', 'ProductoController@destroy')->name('productos.destroy')
+		 ->middleware('permission:productos.destroy');
+ 
+	 Route::get('productos/{producto}/edit', 'ProductoController@edit')->name('productos.edit')
+		 ->middleware('permission:productos.edit');
+
+		  //Venta
+	Route::post('ventas/store', 'VentasController@store')->name('ventas.store')
+		 ->middleware('permission:prventasoductos.create');
+ 
+	 Route::get('ventas', 'VentasController@index')->name('ventas.index')
+		 ->middleware('permission:ventas.index');
+ 
+	 Route::get('ventas/create', 'VentasController@create')->name('ventas.create')
+		 ->middleware('permission:ventas.create');
+ 
+	 Route::put('ventas/{venta}', 'VentasController@update')->name('ventas.update')
+		 ->middleware('permission:ventas.edit');
+ 
+	 Route::get('ventas/{venta}', 'VentasController@show')->name('ventas.show')
+		 ->middleware('permission:venta.show');
+ 
+	 Route::delete('ventas/{venta}', 'VentasController@destroy')->name('ventas.destroy')
+		 ->middleware('permission:ventas.destroy');
+ 
+	 Route::get('ventas/{venta}/edit', 'VentasController@edit')->name('ventas.edit')
+		 ->middleware('permission:ventas.edit');
+
 });
