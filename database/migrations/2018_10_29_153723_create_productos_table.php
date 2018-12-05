@@ -21,6 +21,7 @@ class CreateProductosTable extends Migration
             $table->string('marca', 50)->nullable();
             $table->double('costo_unitario');
             $table->double('precio_venta');
+            $table->integer('stock');
             $table->char('estado')->default('A'); // A = haceptado R = rechasado
             $table->integer('id_categoria')->unsigned();
             $table->timestamps();

@@ -13,7 +13,7 @@ class CreateCargosTable extends Migration
      */
     public function up()
     {
-        Schema::create('cargo', function (Blueprint $table) {
+        Schema::create('cargos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
             $table->string('descripcion')->nullable();
