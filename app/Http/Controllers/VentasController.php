@@ -79,7 +79,7 @@ class VentasController extends Controller
 	    $mytime = Carbon::now('America/Mexico_City');
 	    $venta -> fecha_hora = $mytime -> toDateTimeString();
 	    $venta -> iva = '16';
-	    $venta -> estado = 'A';	    
+	    $venta -> estado = 'A';
 	    $venta -> save();
 
 	    $id  = $request -> get('id_articulo');

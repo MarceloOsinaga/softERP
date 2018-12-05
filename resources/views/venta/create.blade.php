@@ -14,26 +14,7 @@
         @endif
     </div>
 </div>
-<div class="col-lg-12">
-    <div class="ibox float-e-margins">
-        <div class="ibox-title panel-success">
-            <h5>Editar categoria </h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
-        </div>
-        <div class="ibox-content" >
         {{Form::open(array('url' => 'ventas/store', 'method' => 'POST', 'autocomplete' => 'off'))}}
-        
         {{Form::token()}}
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -41,7 +22,7 @@
                <label for="nombre">Cliente:</label>
                <select name="id_cliente" id="id_cliente" class="form-control selectpicker" data-Live-search="true">
                    @foreach($clientes as $cliente)
-                       <option value="{{$cliente ->id}}">{{$cliente ->nombre}} {{$cliente ->apaterno}}</option>
+                       <option value="{{$cliente -> id}}">{{$cliente -> nombre}} {{$cliente -> apaterno}}</option>
                    @endforeach
                </select>
             </div>
@@ -79,10 +60,7 @@
                         <label for="">Articulo</label>
                         <select class="form-control selectpicker" name="pid_articulo" id="pid_articulo" data-Live-search="true">
                             @foreach($productos as $producto)
-                                <option value="
-                                    {{$producto->id}}
-                                    {{$producto->stock}}
-                                    {{$producto->precio_venta}}">{{$producto ->producto}}</option>
+                                <option value="{{$producto -> id}}_{{$producto -> stock}}_{{$producto -> precio_venta}}">{{$producto -> producto}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -90,13 +68,13 @@
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
                     <div class="form-group">            
                        <label for="cantidad">Stock:</label>
-                        <input type="number" class="form-control" value="{{$producto->stock}}" name="pstock" id="pstock"  readonly>            
+                        <input type="number" class="form-control" name="pstock" id="pstock"  readonly>            
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                     <div class="form-group">            
                        <label for="cantidad">Precio de venta:</label>
-                        <input type="number" class="form-control" value="{{$producto->precio_venta}}" name="pprecio_venta" id="pprecio_venta"readonly>            
+                        <input type="number" class="form-control" name="pprecio_venta" id="pprecio_venta"readonly>            
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
@@ -148,10 +126,7 @@
             <button class="btn btn-danger" type="reset">Cancelar</button>
             </div>  
         </div>
-    </div>      
-</div>
-</div>
-</div>          
+    </div>                
         {{Form::close()}}
         
 @push('scripts')
@@ -160,9 +135,9 @@
          
         $('#bt_add').click(function(){
             agregar();
-            mostrarValores();
+           
         })
-        
+        mostrarValores();
         
     });
     

@@ -42,7 +42,7 @@
                                             <td>{{$ing -> id}}</td>
                                             <td>{{$ing -> estado}}</td>
                                             <td>{{$ing -> fecha_Emision}}</td>
-                                            <td>{{$ing -> nombre_Proveedora}}</td>
+                                            <td>{{$ing -> nombreproveedor}}</td>
                                             <td>{{$ing -> total}}</td>                  
                                             <td>
                                                 <a href="{{URL::action('CompraController@show', $ing -> id)}}">

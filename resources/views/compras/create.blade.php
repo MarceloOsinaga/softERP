@@ -39,7 +39,7 @@
                                     <label for="nombre">Proveedor:</label>
                                     <select name="id_proveedor" id="id_proveedor" class="form-control selectpicker" data-Live-search="true">
                                         @foreach($proveedors as $proveedor)
-                                            <option value="{{$proveedor -> id}}">{{$proveedor -> nombre_Proveedora}} </option>
+                                            <option value="{{$proveedor -> id}}">{{$proveedor -> nombreproveedor}} </option>
                                         @endforeach
                                     </select>
                                     </div>

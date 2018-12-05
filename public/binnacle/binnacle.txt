@@ -435,3 +435,5 @@ Fecha: 04-12-2018 02:20:01 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || I
 Fecha: 04-12-2018 02:20:16 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/categoria/create
 
 >>>>>>> ac93f5b9551180d4609faa2954d8b9bcb382d361
+
+Fecha: 05-12-2018 16:20:21 || ID: 6 || Nombre: Marcelo osinaga255@gmail.com || IP: 127.0.0.1 || Url: http://localhost:8000/proveedor/create
