@@ -15,11 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('hola', 'PruebaController');
 Route::resource('hom','TemaController');
-Route::resource('compras', 'CompraController');
 
 
 
@@ -66,6 +76,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit')
 		->middleware('permission:users.edit');
 
+	Route::get('users/regist', 'UserController@regist')->name('users.regist')
+	->middleware('permission:users.regist');
 	
 	//Clientes
 	Route::post('clientes/store', 'ClientesController@store')->name('clientes.store')

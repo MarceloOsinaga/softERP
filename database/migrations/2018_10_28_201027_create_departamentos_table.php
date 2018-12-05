@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TableAlmacenes extends Migration
+class CreateDepartamentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class TableAlmacenes extends Migration
      */
     public function up()
     {
-        Schema::create('Almacens', function (Blueprint $table) {
+        Schema::create('departamentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 50);
-            $table->string('descripcion', 50)->nullable();            
-            $table->integer('id_Ciudad')->unsigned();
+            $table->string('nombre');
+            $table->string('descripcion')->nullable();
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
-            $table->foreign('id_Ciudad')->references('id')->on('Ciudads'); 
         });
     }
 
@@ -30,6 +29,6 @@ class TableAlmacenes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Almacens');
+        Schema::dropIfExists('departamentos');
     }
 }

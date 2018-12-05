@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TablePais extends Migration
+class CreateCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class TablePais extends Migration
      */
     public function up()
     {
-        Schema::create('Pais', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 50);
+            $table->string('nombre');
+            $table->string('descripcion')->nullable();
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class TablePais extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Pais');
+        Schema::dropIfExists('categorias');
     }
 }

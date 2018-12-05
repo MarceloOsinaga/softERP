@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TableSucursal extends Migration
+class CreateCargosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class TableSucursal extends Migration
      */
     public function up()
     {
-        Schema::create('Sucursals', function (Blueprint $table) {
+        Schema::create('cargos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion', 50);
-            $table->string('direccion', 80)->nullable();
-            $table->integer('id_Ciudad')->unsigned();
+            $table->string('nombre');
+            $table->string('descripcion')->nullable();
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
-            $table->foreign('id_Ciudad')->references('id')->on('Ciudads'); 
         });
     }
 
@@ -30,6 +29,6 @@ class TableSucursal extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Sucursals');
+        Schema::dropIfExists('cargos');
     }
 }

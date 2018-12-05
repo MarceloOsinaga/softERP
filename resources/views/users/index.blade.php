@@ -23,7 +23,7 @@
                     <div class="col-sm-6">
                         <div class="input-group">
                             @can('users.regist')
-                            <a href=""
+                            <a href="{{ route('users.regist') }}"
                             class="btn btn-sm btn-success">
                             <i class="fa fa-plus"></i> Nuevo Usuario
                             </a>

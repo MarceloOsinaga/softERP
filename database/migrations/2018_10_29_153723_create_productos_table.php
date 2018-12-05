@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TableFormaPago extends Migration
+class CreateProductosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class TableFormaPago extends Migration
      */
     public function up()
     {
-        Schema::create('forma_Pagos', function (Blueprint $table) {
-            $table->increments('id');             
-            $table->string('descripcion', 20);
+        Schema::create('productos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ class TableFormaPago extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forma_Pagos');
+        Schema::dropIfExists('productos');
     }
 }
