@@ -19,7 +19,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('hola', 'PruebaController');
 Route::resource('hom','TemaController');
-
+Route::resource('compras', 'CompraController');
 
 
 
@@ -197,22 +197,4 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('departamentos/{cargo}/edit', 'DepartamentoController@edit')->name('departamentos.edit')
 		->middleware('permission:departamentos.edit');
 	
-	
-		//Route::resource('compras', 'CompraController')->middleware('permission:compras');
-		//compras
-		Route::resource('compras', 'CompraController');
-	Route::post('compras/store', 'CompraController@store')->name('compras.store')
-	->middleware('permission:compras.create');
-
-	Route::get('compras', 'CompraController@index')->name('compras.index')
-		->middleware('permission:compras.index');
-
-	Route::get('compras/create', 'CompraController@create')->name('compras.create')
-		->middleware('permission:compras.create');
-
-	Route::get('compras/{compra}', 'CompraController@show')->name('compras.show')
-		->middleware('permission:compras.show');
-
-	Route::delete('compras/{compra}', 'CompraController@destroy')->name('compras.destroy')
-		->middleware('permission:compras.destroy');
 });

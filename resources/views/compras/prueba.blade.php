@@ -1,2 +1,0 @@
-{{$detalle}}
-{{$orden_compras}}

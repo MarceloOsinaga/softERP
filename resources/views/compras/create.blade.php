@@ -14,10 +14,8 @@
         @endif
     </div>
 </div>
-{{Form::open(array('url' => 'compras/store', 'method' => 'POST', 'autocomplete' => 'off'))}}
+        {{Form::open(array('url' => 'compras', 'method' => 'POST', 'autocomplete' => 'off'))}}
         {{Form::token()}}
-
-    <!-- Checbook del Proveedor-->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
              <div class="form-group">            
@@ -28,15 +26,16 @@
                    @endforeach
                </select>
             </div>
-        </div>   
-    </div>
-
-    <!-- Panel de datos-->
-    <div class="row">       
+        </div>
+          
+   
+        </div>
+        
+</div>
+    <div class="row">
+       
        <div class="panel panel-primary">
            <div class="panel-body">
-
-               <!-- Checbook de Producto-->
                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
                         <label for="">Producto</label>
@@ -47,16 +46,12 @@
                         </select>
                     </div>
                </div>
-
-               <!-- buson de cantidad-->
                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                     <div class="form-group">            
                        <label for="cantidad">Cantidad:</label>
                         <input type="number" class="form-control" name="pcantidad" id="pcantidad" placeholder="cantidad">            
                     </div>
                 </div>
-
-                <!-- buson de Precio de compra-->
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                     <div class="form-group">            
                        <label for="cantidad">Precio de compra:</label>
@@ -64,14 +59,11 @@
                     </div>
                 </div>
                 
-                <!-- boton Agregar-->
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                     <div class="form-group">            
                        <button type="button" id="bt_add" class="btn btn-primary">Agregar</button>
                     </div>
                 </div>
-
-                <!-- Tabla de productos a comprar-->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                         <thead style="background-color: #A9D0F5">
@@ -100,12 +92,12 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="guardar">
           <div class="form-group">
               <input name="_token" value="{{csrf_token()}}" type="hidden">
-            <button class="btn btn-primary" type="submit">Comprar</button>
+            <button class="btn btn-primary" type="submit">Vender</button>
             <button class="btn btn-danger" type="reset">Cancelar</button>
             </div>  
         </div>
     </div>                
-    {{ Form::close() }}
+        {{Form::close()}}
         
 @push('scripts')
 <script>
@@ -128,9 +120,7 @@
         producto = $('#pid_producto option:selected').text();
         cantidad = $('#pcantidad').val();
         precio = $('#pprecio').val();
-       
-        console.log(cantidad);
-      
+        
         
         
         if(id_producto != "" && cantidad != "" && cantidad > 0 && precio != "" )
