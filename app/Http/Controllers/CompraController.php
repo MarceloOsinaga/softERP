@@ -26,9 +26,9 @@ class CompraController extends Controller
         $orden_compras = DB::table('orden_compras as i') 
         -> join('proveedors as p','i.id_proveedor','=','p.id')
         -> join('detalle_compras as dc','i.id','=','dc.id_OrdenCompra')
-        -> select('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombre_Proveedora', DB::raw('sum(dc.cantidad*precio) as total')) 
+        -> select('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombreproveedor', DB::raw('sum(dc.cantidad*precio) as total')) 
         -> orderBy('i.id', 'asc')
-        -> groupBy('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombre_Proveedora')
+        -> groupBy('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombreproveedor')
         -> paginate(7);
         
         return view('compras.index', ["orden_compras" => $orden_compras, "searchText" => $querry])->with('compras');
@@ -104,9 +104,9 @@ class CompraController extends Controller
         $orden_compras = DB::table('orden_compras as i') 
         -> join('proveedors as p','i.id_Proveedor','=','p.id')
         -> join('detalle_compras as dc','i.id','=','dc.id_OrdenCompra')
-        -> select('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombre_Proveedora','p.nombre_Contacto', DB::raw('sum(dc.cantidad*precio) as total')) 
+        -> select('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombreproveedor','p.nombre_Contacto', DB::raw('sum(dc.cantidad*precio) as total')) 
         ->where('i.id','=', $id)
-        -> groupBy('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombre_Proveedora','p.nombre_Contacto')
+        -> groupBy('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombreproveedor','p.nombre_Contacto')
         ->first();        
 
         $detalles = DB::table('detalle_compras as d')

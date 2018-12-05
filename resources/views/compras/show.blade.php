@@ -6,7 +6,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">            
                       <label for="nombre">Proveedor:</label>
-                       <p>{{$orden_compras -> nombre_Proveedora}}</p>
+                       <p>{{$orden_compras -> nombreproveedor}}</p>
                </div>
                </div>
                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
