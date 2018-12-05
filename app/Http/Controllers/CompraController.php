@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\CompraFormRequest;
 use DB;
 use App\Compras;
 use App\DetalleCompras;
+use Carbon\Carbon;
+use Response;
+use Illuminate\Support\Collection;
 
 class CompraController extends Controller
 {
@@ -27,7 +31,7 @@ class CompraController extends Controller
         -> groupBy('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombre_Proveedora')
         -> paginate(7);
         
-        return view('compras.index', ["orden_compras" => $orden_compras, "searchText" => $querry]);
+        return view('compras.index', ["orden_compras" => $orden_compras, "searchText" => $querry])->with('compras');
       }
     }
 
@@ -58,62 +62,52 @@ class CompraController extends Controller
     //store(insertar un registro)
     public function store(Request $request)
     {
-      
-    try {
-
-    	DB::beginTransaction();
-
+      //tabla orden_compra
       $orden_compras = new Compras;
-      $orden_compras -> estado = 'Aceptado';
-      $mytime = Carbon::now('America/Bolivia');
+      $orden_compras -> estado = 'Pendiente';
+      $mytime = Carbon::now('America/Mexico_City');
       $orden_compras -> fecha_Emision = $mytime ->toDateTimeString();
-      $orden_compras -> importe = $request ->get('importe');
-      $orden_compras -> id_Empleado = $request->get('id_Empleado');
-      $orden_compras -> id_Proveedor = $request->get('id_Proveedor');
+      $orden_compras-> id_Proveedor = '1';
+     // $orden_compras -> id_Proveedor = $request->get('id_Proveedor');
       $orden_compras->save();
 
-      $id_producto = $request ->get('id');
+      $id_producto = $request ->get('id_producto');
       $cantidad = $request ->get('cantidad');
       $precio = $request ->get('precio');
-
-
+      //dd($request->all());
+     // dd($request->all());
       $cont=0;
+      $CanRregistros = count ($id_producto);
 
-	    while($cont < count ($id_producto)){
+      // tabla detalle_compra
+	    while($cont < $CanRregistros ){
+        $detalle = new DetalleCompras();  
 
-	    	$detalle = new DetalleCompras();
-	    	$detalle -> id_OrdenCompra = $id_producto -> id;
-	    	$detalle -> id_producto = $id_producto[$cont];
+	    	$detalle -> id_OrdenCompra = $orden_compras -> id;
+	    	$detalle -> id_Producto = $id_producto[$cont];
 	    	$detalle -> cantidad = $cantidad[$cont];
-	    	$detalle -> precio_compra = $precio[$cont];
+        $detalle -> precio = $precio[$cont];        
 	    	$detalle -> save();
-	    	
-	    	$cont = $cont+1;
+        $cont = $cont+1;        
+       // return redirect()->route('compras.prueba',['detalle' => $detalle->info, 'orden_compras' => $orden_compras->info]);
 	    }
 
-    	DB::commit();
-
-    } catch (\Exception $e) {
-    	DB::rollback();
-    }
-
-      return Redirect::to('compras');
+  
+   //dd($request->all());
+     return redirect()->route('compras.index');
+      //return Redirect::to('compras');
     }
 
     //show
     public function show ($id){
 
         $orden_compras = DB::table('orden_compras as i') 
-        -> join('proveedors as p','i.id_proveedor','=','p.id')
+        -> join('proveedors as p','i.id_Proveedor','=','p.id')
         -> join('detalle_compras as dc','i.id','=','dc.id_OrdenCompra')
-        -> select('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombre_Proveedora', DB::raw('sum(dc.cantidad*precio) as total')) 
+        -> select('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombre_Proveedora','p.nombre_Contacto', DB::raw('sum(dc.cantidad*precio) as total')) 
         ->where('i.id','=', $id)
+        -> groupBy('i.id', 'i.estado', 'i.fecha_Emision', 'p.nombre_Proveedora','p.nombre_Contacto')
         ->first();        
-
-        $detalles = DB::table('detalles_ingresos as d') 
-         -> join('articulos as a','d.id_articulo','=','a.id_articulo')
-         -> select('a.nombre as articulo', 'd.cantidad', 'd.precio_compra')
-         -> where ('d.id_ingreso', '=', $id) -> get();
 
         $detalles = DB::table('detalle_compras as d')
         ->join('productos as a', 'd.id_Producto', '=', 'a.id')
@@ -130,11 +124,10 @@ class CompraController extends Controller
     //destroy (eliminar logicamente un registro)
     public function destroy($id)
     {
-      $orden_compras = Compras::findOrFail($id);
-      $orden_compras->estado = 'rechazado';
-      $orden_compras->update();
-
-      return Redirect::to('compras');
+      $orden_compras = Compras::find($id);
+      $orden_compras->estado ='rechazado';
+      $orden_compras->save();
+      return redirect()->route('compras.index');
     }
 
 

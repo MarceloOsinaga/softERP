@@ -15,14 +15,10 @@ class TableOrdenCompra extends Migration
     {
         Schema::create('Orden_Compras', function (Blueprint $table) {
             $table->increments('id');            
-            $table->string('estado')->default('Pendiente');
+            $table->char('estado')->default('A');
             $table->date('fecha_Emision');
-            $table->double('importe');
-
-            $table->integer('id_Empleado')->unsigned();
             $table->integer('id_Proveedor')->unsigned();
-            $table->timestamps();
-            $table->foreign('id_Empleado')->references('id')->on('Empleados');             
+            $table->timestamps();            
             $table->foreign('id_Proveedor')->references('id')->on('Proveedors'); 
         });
     }

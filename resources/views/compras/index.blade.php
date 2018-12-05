@@ -1,5 +1,29 @@
 @extends ('layouts.admin') 
 @section ('content')
+
+<div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title panel-success">
+                    <h5>Nueva Compra </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+
+            </div>
+            
+        </div>
+</div>
+
+
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
          <a href="compras/create"><button class="btn btn-success">Nuevo</button></a>
@@ -30,12 +54,9 @@
                         <a href="{{URL::action('CompraController@show', $ing -> id)}}">
                             <button class="btn btn-primary">Detalles</button>
                         </a>
-                        <a href="" data-target="#modal-delete-{{$ing -> id}}" data-toggle="modal">
-                            <button class="btn btn-danger">Anular</button>
-                        </a>
                     </td>
                 </tr> 
-                @include('compras.modal')
+                {{--@include('compras.modal')--}}
                 @endforeach </table>
         </div>
          {{$orden_compras -> render()}}
